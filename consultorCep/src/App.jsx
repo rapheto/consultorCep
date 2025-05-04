@@ -3,8 +3,12 @@ import { useForm } from 'react-hook-form';
 import styles from './App.module.css';
 
 function App() {
-  const {register, handleSubmit, setValue, setFocus} = useForm();
+  const {register, handleSubmit, setValue} = useForm();
 
+  const onSubmit = (a) => {
+    console.log(a);
+  }
+  
   const checarCep = (a) => {
     const cep = a.target.value.replace(/\D/g, '');
     console.log(cep);
@@ -21,8 +25,9 @@ function App() {
 
   return (
     <main>
-      <div>
-        <form className={styles.formCep}>
+      <div className={styles.mainDiv}>
+        <h2>API CEP</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.formCep}>
           <label>
             CEP:
             <input type="text" {...register("cep")} onBlur={checarCep} />
@@ -48,7 +53,7 @@ function App() {
             <input type="text" {...register("uf" )}/>
           </label>
        </form>
-       <button type="submit">Enviar</button>
+       <button type="submit" onClick={handleSubmit(onSubmit)}>Enviar</button>
       </div>
     </main>
   )

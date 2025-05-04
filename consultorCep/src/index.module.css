@@ -23,10 +23,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
   display: flex;
   justify-content: center;
-  place-items: center;
+  align-items: center;
+  margin: 0;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -66,4 +66,12 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.mainDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 300px;
 }
